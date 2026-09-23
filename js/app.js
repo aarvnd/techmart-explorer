@@ -30,4 +30,5 @@ document.addEventListener("DOMContentLoaded", () => {
   const products = getAllProducts(storeData);
 
   setupModal();
+  initPriceFinder(products);
 });
