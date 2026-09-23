@@ -7,8 +7,8 @@ Mini e-commerce dashboard built with plain HTML, CSS and JavaScript using the pr
 
 ## Challenges Completed
 
-| Challenge | Feature | Marks |
-|---|---|---|
+| Challenge | Feature |
+|---|---|
 | 1 | Smart Price Finder |
 | 2 | Top K Popular Products |
 | 6 | Inventory Range Dashboard |
