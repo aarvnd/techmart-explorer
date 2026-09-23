@@ -11,11 +11,55 @@
     <div class="container header-inner">
       <h1 class="logo">Tech<span>Mart</span></h1>
       <nav class="nav">
+        <a href="#price-finder">Price Finder</a>
       </nav>
     </div>
   </header>
 
   <main class="container">
+    <section id="price-finder" class="section">
+      <h2>Smart Price Finder</h2>
+      <p class="sub">Find products closest to your budget</p>
+
+      <div class="panel">
+        <div class="form-row">
+          <div class="field">
+            <label for="targetPrice">Find products around (₹)</label>
+            <input type="number" id="targetPrice" placeholder="e.g. 70000" min="0">
+          </div>
+          <div class="field small">
+            <label for="closestCount">Show</label>
+            <select id="closestCount">
+              <option value="3">3</option>
+              <option value="5" selected>5</option>
+              <option value="8">8</option>
+            </select>
+          </div>
+          <button class="btn" id="searchPriceBtn">Search</button>
+        </div>
+        <p class="error" id="priceError"></p>
+      </div>
+
+      <div class="panel">
+        <div class="form-row">
+          <div class="field">
+            <label for="rangeMin">Minimum price (₹)</label>
+            <input type="number" id="rangeMin" placeholder="50000" min="0">
+          </div>
+          <div class="field">
+            <label for="rangeMax">Maximum price (₹)</label>
+            <input type="number" id="rangeMax" placeholder="80000" min="0">
+          </div>
+          <button class="btn btn-outline" id="rangeSearchBtn">Find products in this range</button>
+        </div>
+        <p class="error" id="rangeError"></p>
+      </div>
+
+      <h3 id="priceResultTitle" class="result-title"></h3>
+      <div class="grid" id="priceResults"></div>
+    </section>
+
+
   </main>
 
   <div class="modal" id="productModal">
@@ -32,6 +76,7 @@
   <script src="js/data.js"></script>
   <script src="js/utils.js"></script>
   <script src="js/ui.js"></script>
+  <script src="js/features/priceFinder.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>
