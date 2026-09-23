@@ -12,6 +12,7 @@
       <h1 class="logo">Tech<span>Mart</span></h1>
       <nav class="nav">
         <a href="#price-finder">Price Finder</a>
+        <a href="#popular">Popular</a>
       </nav>
     </div>
   </header>
@@ -59,6 +60,23 @@
       <div class="grid" id="priceResults"></div>
     </section>
 
+    <section id="popular" class="section">
+      <div class="section-head">
+        <div>
+          <h2>🔥 Popular Products</h2>
+          <p class="sub">Ranked by rating × reviews</p>
+        </div>
+        <div class="field small">
+          <label for="topKSelect">Show Top</label>
+          <select id="topKSelect">
+            <option value="3">3</option>
+            <option value="5">5</option>
+            <option value="10">10</option>
+          </select>
+        </div>
+      </div>
+      <div class="grid" id="popularList"></div>
+    </section>
 
   </main>
 
@@ -77,6 +95,7 @@
   <script src="js/utils.js"></script>
   <script src="js/ui.js"></script>
   <script src="js/features/priceFinder.js"></script>
+  <script src="js/features/topK.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>

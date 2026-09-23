@@ -10,6 +10,7 @@ Mini e-commerce dashboard built with plain HTML, CSS and JavaScript using the pr
 | Challenge | Feature | Marks |
 |---|---|---|
 | 1 | Smart Price Finder | 50 |
+| 2 | Top K Popular Products | 70 |
 
 ## How to Run
 
@@ -28,7 +29,8 @@ techmart-explorer/
     ├── ui.js
     ├── app.js
     └── features/
-        └── priceFinder.js
+        ├── priceFinder.js
+        └── topK.js
 ```
 
 - `app.js` flattens the nested categories → subcategories → products into one array and starts every feature.
@@ -56,6 +58,30 @@ For range search, `lowerBound(min)` and `upperBound(max)` give the start and end
 
 **Edge cases handled:** empty input, negative price, min greater than max, only min or only max given, target higher than every product, no products in range.
 
+## Challenge 2 — Top K Popular Products
+
+`popularity = rating × reviews`. User can switch between Top 3, 5 and 10 without reload.
+
+**Initial Approach:** Calculate popularity for all products, sort the full array in descending order and take the first K.
+
+- Time Complexity: O(n log n)
+- Space Complexity: O(n)
+
+**Optimized Approach:** Use a Min-Heap of size K (written from scratch in `topK.js`). Go through every product:
+
+- if heap has less than K items → push
+- else if current product is more popular than the heap top (smallest of the current top K) → pop the top and push the current product
+
+At the end the heap has exactly the top K products. Popping everything and reversing gives the ranking from #1 to #K.
+
+- Time Complexity: O(n log K)
+- Space Complexity: O(K)
+
+When K is much smaller than n (for example n = 1,000,000 and K = 10), this is much faster than sorting everything.
+
+Ties in popularity are broken by product name so the order is always same.
+
+**Edge cases handled:** K larger than number of products, products with missing rating or reviews (treated as 0).
 
 
 ## Responsive Design
