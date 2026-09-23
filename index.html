@@ -13,6 +13,7 @@
       <nav class="nav">
         <a href="#price-finder">Price Finder</a>
         <a href="#popular">Popular</a>
+        <a href="#inventory">Inventory</a>
       </nav>
     </div>
   </header>
@@ -78,6 +79,65 @@
       <div class="grid" id="popularList"></div>
     </section>
 
+    <section id="inventory" class="section">
+      <h2>Inventory Analytics</h2>
+      <p class="sub">Total stock value (price × stock) in a price range</p>
+
+      <div class="panel">
+        <div class="form-row">
+          <div class="field">
+            <label for="invMin">Minimum price (₹)</label>
+            <input type="number" id="invMin" value="5000" min="0">
+          </div>
+          <div class="field">
+            <label for="invMax">Maximum price (₹)</label>
+            <input type="number" id="invMax" value="20000" min="0">
+          </div>
+          <button class="btn" id="invSearchBtn">Search</button>
+        </div>
+
+        <div class="slider">
+          <div class="slider-track" id="sliderTrack"></div>
+          <input type="range" id="sliderMin" min="0" max="150000" step="500" value="5000">
+          <input type="range" id="sliderMax" min="0" max="150000" step="500" value="20000">
+        </div>
+        <div class="slider-labels">
+          <span id="sliderMinLabel"></span>
+          <span id="sliderMaxLabel"></span>
+        </div>
+        <p class="error" id="invError"></p>
+      </div>
+
+      <div class="stats">
+        <div class="stat">
+          <span class="stat-label">Products</span>
+          <span class="stat-value" id="invCount">0</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Total Stock Units</span>
+          <span class="stat-value" id="invUnits">0</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Inventory Value</span>
+          <span class="stat-value" id="invValue">₹0</span>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Brand</th>
+              <th>Price</th>
+              <th>Stock</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody id="invTable"></tbody>
+        </table>
+      </div>
+    </section>
   </main>
 
   <div class="modal" id="productModal">
@@ -96,6 +156,7 @@
   <script src="js/ui.js"></script>
   <script src="js/features/priceFinder.js"></script>
   <script src="js/features/topK.js"></script>
+  <script src="js/features/inventory.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>

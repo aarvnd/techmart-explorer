@@ -11,6 +11,7 @@ Mini e-commerce dashboard built with plain HTML, CSS and JavaScript using the pr
 |---|---|---|
 | 1 | Smart Price Finder | 50 |
 | 2 | Top K Popular Products | 70 |
+| 6 | Inventory Range Dashboard | 120 |
 
 ## How to Run
 
@@ -30,7 +31,8 @@ techmart-explorer/
     ├── app.js
     └── features/
         ├── priceFinder.js
-        └── topK.js
+        ├── topK.js
+        └── inventory.js
 ```
 
 - `app.js` flattens the nested categories → subcategories → products into one array and starts every feature.
@@ -83,6 +85,33 @@ Ties in popularity are broken by product name so the order is always same.
 
 **Edge cases handled:** K larger than number of products, products with missing rating or reviews (treated as 0).
 
+## Challenge 6 — Inventory Range Dashboard
+
+User enters min and max price (or uses the slider) and sees number of products, total stock units and total inventory value (`price × stock`).
+
+**Initial Approach:** For every query, loop through all products and add `price × stock` for products inside the range.
+
+- Time Complexity: O(n) per query
+- Space Complexity: O(1)
+
+**Optimized Approach:** Preprocess once:
+
+1. Sort products by price.
+2. Build prefix sum arrays: `valuePrefix[i + 1] = valuePrefix[i] + price × stock` (and same for stock).
+
+For each query:
+
+- `start = lowerBound(min)`, `end = upperBound(max)`
+- product count = `end - start`
+- inventory value = `valuePrefix[end] - valuePrefix[start]`
+
+- Preprocessing: O(n log n) once
+- Each query: O(log n) for the summary numbers (plus O(m) only for drawing the table rows)
+- Space Complexity: O(n)
+
+Because the slider fires a query on every movement, this makes repeated queries fast.
+
+**Edge cases handled:** empty inputs, negative price, min greater than max, slider handles crossing each other, no products in range, clicking a table row opens the product detail.
 
 ## Responsive Design
 

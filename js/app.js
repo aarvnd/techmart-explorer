@@ -32,4 +32,5 @@ document.addEventListener("DOMContentLoaded", () => {
   setupModal();
   initPriceFinder(products);
   initTopK(products);
+  initInventory(products);
 });
