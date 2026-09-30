@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Challenge 6 - Inventory Range Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a href="../index.html">← Back</a>
+  <h1>Inventory Analytics</h1>
+  <p>Inventory value = price × stock</p>
+
+  <div class="box">
+    <label>Minimum price (₹)</label>
+    <input type="number" id="minPrice" value="5000">
+    <label>Maximum price (₹)</label>
+    <input type="number" id="maxPrice" value="20000">
+    <button onclick="calculate()">Search</button>
+
+    <div class="slider-row">
+      <label>Min: ₹<span id="minLabel">5000</span></label>
+      <input type="range" id="minSlider" min="0" max="150000" step="1000" value="5000" oninput="sliderChanged()">
+    </div>
+    <div class="slider-row">
+      <label>Max: ₹<span id="maxLabel">20000</span></label>
+      <input type="range" id="maxSlider" min="0" max="150000" step="1000" value="20000" oninput="sliderChanged()">
+    </div>
+
+    <p class="error" id="error"></p>
+  </div>
+
+  <div class="summary">
+    <div class="stat">
+      <p>Products</p>
+      <h2 id="count">0</h2>
+    </div>
+    <div class="stat">
+      <p>Inventory Value</p>
+      <h2 id="total">₹0</h2>
+    </div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Price</th>
+        <th>Stock</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody"></tbody>
+  </table>
+
+  <script src="../data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Challenge 1 - Smart Price Finder</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a href="../index.html">← Back</a>
+  <h1>Smart Price Finder</h1>
+  <p>Find products closest to your budget</p>
+
+  <div class="box">
+    <label>Find products around (₹)</label><br>
+    <input type="number" id="price" placeholder="e.g. 70000">
+    <button onclick="findClosest()">Search</button>
+    <p class="error" id="error1"></p>
+  </div>
+
+  <div class="box">
+    <label>Minimum price (₹)</label>
+    <input type="number" id="minPrice" placeholder="50000">
+    <label>Maximum price (₹)</label>
+    <input type="number" id="maxPrice" placeholder="80000">
+    <button onclick="findInRange()">Find products in this range</button>
+    <p class="error" id="error2"></p>
+  </div>
+
+  <h2 id="title"></h2>
+  <div class="cards" id="results"></div>
+
+  <div class="details" id="details" style="display: none;"></div>
+
+  <script src="../data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

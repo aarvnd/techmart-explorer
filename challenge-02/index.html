@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Challenge 2 - Top K Popular Products</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a href="../index.html">← Back</a>
+  <h1>🔥 Popular Products</h1>
+  <p>Popularity = rating × reviews</p>
+
+  <div class="box">
+    <label>Show Top:</label>
+    <select id="topK" onchange="showTopProducts()">
+      <option value="3">3</option>
+      <option value="5">5</option>
+      <option value="10">10</option>
+    </select>
+  </div>
+
+  <h2 id="title"></h2>
+  <div class="cards" id="results"></div>
+
+  <script src="../data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
