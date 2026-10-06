@@ -1,0 +1,10 @@
+# JetBrains IDE settings
+.idea/
+*.iml
+
+# VS Code
+.vscode/
+
+# macOS metadata
+.DS_Store
+Icon?
